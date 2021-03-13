@@ -1,0 +1,9 @@
+<div *ngIf="isGameStarted() && !hasGameEnded()">
+    <mat-form-field class="perform-bowl">
+        <mat-label>{{ currentActivePlayerName() }} bowls: </mat-label>
+        <input min="0" max="10" matInput type="number" [(ngModel)]="value">
+    </mat-form-field>
+    <button color="primary" [disabled]="!isGameStarted() || !inputIsValid()" mat-raised-button (click)="bowl()">
+        Bowl!
+    </button>
+</div>

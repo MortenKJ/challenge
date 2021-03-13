@@ -1,0 +1,24 @@
+<button class="button" color="primary" [disabled]="isGameStarted() ||
+ !enoughPlayers()" mat-raised-button (click)="startGame()">
+  Start game!
+</button>
+<button class="button" color="primary" [disabled]="!isGameStarted()" mat-raised-button (click)="resetGame()">
+  Reset game!
+</button>
+
+<table>
+  <tr>
+    <th>Round</th>
+    <th *ngFor="let player of currentPlayers">{{ player.name }}</th>
+  </tr>
+
+  <tr *ngFor="let round of rounds">
+    <th>{{ round }}</th>
+    <th *ngFor="let player of currentPlayers">{{ getRoundScoreDisplayValue(player.rounds[round - 1]) }}</th>
+  </tr>
+
+  <tr>
+    <th>Total score:</th>
+    <th *ngFor="let player of currentPlayers">{{ calculateTotalScore(player) }}</th>
+  </tr>
+</table>
