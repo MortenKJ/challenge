@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 
 import { BowlingService } from '../bowling.service';
 import { PerformBowlService } from './perform-bowl.service';
@@ -9,19 +8,11 @@ import { PerformBowlService } from './perform-bowl.service';
   templateUrl: './perform-bowl.component.html',
   styleUrls: ['./perform-bowl.component.scss']
 })
-export class PerformBowlComponent implements OnInit {
-  public inputForm = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
+export class PerformBowlComponent {
   public value: number = 0;
 
   constructor(private performBowlService: PerformBowlService,
               private bowlingService: BowlingService) { }
-
-  ngOnInit(): void {
-  }
 
   public currentActivePlayerName(): string {
     return this.bowlingService.currentActivePlayerName() || '';

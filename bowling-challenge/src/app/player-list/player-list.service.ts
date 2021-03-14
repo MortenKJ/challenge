@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { BowlingService } from "../bowling.service";
 
 export interface Player {
   name: string,
@@ -11,7 +10,6 @@ export interface Round {
   isSpare: boolean,
   bowlOne: number | undefined,
   bowlTwo: number | undefined,
-  roundScore: number
 }
 
 @Injectable()
@@ -29,7 +27,6 @@ export class PlayerListService {
       round.bowlTwo = undefined;
       round.isSpare = false;
       round.isStrike = false;
-      round.roundScore = 0;
     });
   }
 
@@ -41,7 +38,7 @@ export class PlayerListService {
     const player = {
       name: playerName,
       rounds: new Array<Round>()
-    }
+    };
 
     for (let index = 0; index < 10; index++) {
       player.rounds.push({
@@ -49,8 +46,7 @@ export class PlayerListService {
         isSpare: false,
         bowlOne: undefined,
         bowlTwo: undefined,
-        roundScore: 0
-      })
+      });
     }
     this.players.push(player);
   }

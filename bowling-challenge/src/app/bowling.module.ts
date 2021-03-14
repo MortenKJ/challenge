@@ -20,6 +20,7 @@ import { PerformBowlComponent } from './perform-bowl/perform-bowl.component';
 import { PlayerListService } from './player-list/player-list.service';
 import { BowlingService } from './bowling.service';
 import { PerformBowlService } from './perform-bowl/perform-bowl.service';
+import { ResultListService } from './result-list/result-list.service';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { PerformBowlService } from './perform-bowl/perform-bowl.service';
   providers: [
     PlayerListService,
     BowlingService,
-    PerformBowlService
+    PerformBowlService,
+    ResultListService
   ],
   bootstrap: [BowlingComponent]
 })
